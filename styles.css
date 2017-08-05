@@ -45,9 +45,10 @@
 .name {
     font-size: large;
     backface-visibility: hidden;
-    transform: translateY(60%) rotateY(180deg)
+    transform: translateY(60%) rotateY(0deg)
 }
 
 .revealed .name{
   transform: translateY(60%) rotateY(0deg);
 }
+

@@ -5,7 +5,6 @@ var matcherController = {
     view: matcherView,
 
     init: function(size) {
-        console.log('controller');
         this.model.init( size );
         this.view.init();
     },
@@ -13,8 +12,6 @@ var matcherController = {
     selecting: false,
 
     selectCard( cardId ) {
-        console.log( cardId );
-
         if( this.selecting ){
             return;
         }

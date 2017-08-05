@@ -4,8 +4,6 @@ var matcherView = {
     model: matcherModel,
 
     init: function() {
-        console.log('view');
-
         this.$grid = $('#matcher-grid');
         this.addCardsToGrid();
 
@@ -20,7 +18,6 @@ var matcherView = {
     },
 
     addCardsToGrid: function() {
-        console.log('add cards');
         for( var i = 0; i < this.model.cards.length; i++ ) {
             var card = this.model.cards[i];
             var $cardDiv = $("<div> <div class='name'>" + card.value.toString() + "</div></div>");
@@ -29,7 +26,6 @@ var matcherView = {
             $cardDiv.attr('id', 'card-' + card.id);
             this.$grid.append( $cardDiv );
         }
-        console.log('finished add cards');
     },
 
     revealCard: function(cardId) {
@@ -52,11 +48,11 @@ var matcherView = {
         
         var $numGuesses = $('#num-guesses');
         $numGuesses.text( this.model.numGuesses );
-        
-        var $totalCards = $('game-state-text');
+
+        var $totalCards = $('#total-cards');
         $totalCards.text( this.model.totalCards );
         
-        var $matchedCards = $('game-state-text');
+        var $matchedCards = $('#matched-cards');
         $matchedCards.text( this.model.matchedCards );
     }
 

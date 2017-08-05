@@ -33,8 +33,6 @@
 }
 
 .card {
-    opacity: o;
-    z-index: 1000;
     height: 50px;
     display: inline-block;
     background-color: lightyellow;

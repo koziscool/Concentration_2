@@ -16,8 +16,6 @@ var matcherModel = {
     selectedCard: null,
 
     init: function( size ) {
-        console.log("model");
-
         this.size = size || this.size;
         var totalPairs = Math.pow( this.size, 2 ) / 2;
         for( var i = 0; i < totalPairs; ++i ) {

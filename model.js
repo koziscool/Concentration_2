@@ -2,6 +2,7 @@
 var matcherModel = {
     size: 4,
     cards: [],
+    aCard: { id: 3, value: "A" },
     numGuesses: 0,
     matchedCards: 0,
     totalCards: 0,
@@ -22,10 +23,11 @@ var matcherModel = {
     },
 
     addPair: function() {
-
+        this.cards.push( this.aCard );
+        this.cards.push( this.aCard );
     },
 
     shuffle: function() {
-
+        console.log('shuffling');
     }
 }

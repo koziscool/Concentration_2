@@ -23,10 +23,31 @@
 }
 
 .grid-container {
-    color: red
+    width: 80%;
+    margin: 0 auto;
 }
 
 .form-container {
     text-align: center;
     margin: 0 auto;
+}
+
+.card {
+    height: 50px;
+    display: inline-block;
+    background-color: lightyellow;
+    text-align: center;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 1%;
+}
+
+.name {
+    font-size: large;
+    backface-visibility: hidden;
+    transform: translateY(60%) rotateY(180deg)
+}
+
+.revealed .name{
+  transform: translateY(60%) rotateY(0deg);
 }

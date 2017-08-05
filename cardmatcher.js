@@ -9,5 +9,6 @@ $(document).ready( function(){
         var size = $('#grid_size').val();
         matcherController.init(size);
         $(this).closest('form').hide();
+        $('.card').animate({opacity: 1});
     });
 });

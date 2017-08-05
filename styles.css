@@ -22,17 +22,19 @@
     color: white;
 }
 
-.grid-container {
-    width: 80%;
-    margin: 0 auto;
-}
-
 .form-container {
     text-align: center;
     margin: 0 auto;
 }
 
+.grid-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .card {
+    opacity: o;
+    z-index: 1000;
     height: 50px;
     display: inline-block;
     background-color: lightyellow;
@@ -40,13 +42,20 @@
     border: 1px solid black;
     box-sizing: border-box;
     margin: 1%;
+    transition: all 0.5s;
+    transform: rotateY(180deg);
 }
 
 .name {
     font-size: large;
     backface-visibility: hidden;
+    transition: all 0.5s;
     transform: translateY(60%) rotateY(180deg)
 }
+
+.revealed{ 
+    transform: rotate(0deg);
+ }
 
 .revealed .name{
   transform: translateY(60%) rotateY(0deg);

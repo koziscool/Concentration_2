@@ -45,10 +45,15 @@
 .name {
     font-size: large;
     backface-visibility: hidden;
-    transform: translateY(60%) rotateY(0deg)
+    transform: translateY(60%) rotateY(180deg)
 }
 
 .revealed .name{
   transform: translateY(60%) rotateY(0deg);
+}
+
+.correct {
+    border-color: darkgreen;
+    background-color: lime;
 }
 

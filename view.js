@@ -13,6 +13,10 @@ var matcherView = {
         $('.card').css({
             width: width + "%"
         });
+
+        $('.card').click(function(e){
+          matcherController.selectCard($(this).data('card-id'))
+        });
     },
 
     addCardsToGrid: function() {
@@ -27,4 +31,33 @@ var matcherView = {
         }
         console.log('finished add cards');
     },
+
+    revealCard: function(cardId) {
+        $('#card-' + cardId).addClass('revealed')
+    },
+
+    hideCards: function() {
+        $('.card').not('.correct').removeClass('revealed');
+    },
+
+    setCorrect: function(cardId) {
+        $('#card-' + cardId).off('click');
+        $('#card-' + cardId).addClass('correct');
+    },
+
+
+    updateGameView: function() {
+        var $gameState = $('#game-state-text');
+        $gameState.text( this.model.gameStateText );
+        
+        var $numGuesses = $('#num-guesses');
+        $numGuesses.text( this.model.numGuesses );
+        
+        var $totalCards = $('game-state-text');
+        $totalCards.text( this.model.totalCards );
+        
+        var $matchedCards = $('game-state-text');
+        $matchedCards.text( this.model.matchedCards );
+    }
+
 };

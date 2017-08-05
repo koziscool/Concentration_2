@@ -13,6 +13,8 @@ var matcherModel = {
 
     cardValues: [ "A", "B", "C", "D", "E", "F", "G", "H" ],
 
+    selectedCard: null,
+
     init: function( size ) {
         console.log("model");
 
@@ -32,9 +34,17 @@ var matcherModel = {
     },
 
     shuffle: function() {
-        console.log('shuffling');
-    },
+        var currentIndex = this.cards.length, temp, rand;
 
+        while( 0 !== currentIndex ){
+            rand = Math.floor( Math.random() * currentIndex );
+            currentIndex--;
+
+            temp = this.cards[currentIndex];
+            this.cards[currentIndex] = this.cards[rand];
+            this.cards[rand] = temp
+        }
+    },
 
     Card: function( id, value ){
         this.id = id;
@@ -53,5 +63,40 @@ var matcherModel = {
         var id = this.currentId;
         this.currentId++;
         return id;
-    }
+    },
+
+    getCard: function(id){
+        for( var index in this.cards ) {
+            if( this.cards[index].id === id ) return this.cards[index];
+        }
+        return null;
+    },
+
+    setSelectedCard: function( cardId ) {
+        this.selectedCard = this.getCard( cardId );
+    },
+
+    sameCard: function( id ) {
+        return this.selectedCard && id === this.selectedCard.id;
+    },
+
+    checkGuess: function(cardId) {
+        this.numGuesses++;
+        var guessedCard = this.getCard(cardId);
+        var correct = this.selectedCard.matches(guessedCard);
+        if( correct) {
+            this.matchedCards += 2;
+        }
+
+        this.selectedCard = null;
+
+        if( this.matchedCards === this.totalCards )
+        {
+            this.gameStateText = "Congratulations, you won!";
+        }
+
+        return correct;
+    },
+
 }
+
